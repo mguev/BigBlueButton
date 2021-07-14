@@ -125,6 +125,9 @@ class VideoList extends Component {
     window.addEventListener('resize', this.handleCanvasResize, false);
     window.addEventListener('layoutSizesSets', this.handleCanvasResize, false);
     window.addEventListener('videoPlayFailed', this.handlePlayElementFailed);
+    logger.info({
+      logCode: 'video_provider_mounted',
+    }, 'VIDEO LIST MOUNTED');
   }
 
   componentWillUnmount() {
