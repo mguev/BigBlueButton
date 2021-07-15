@@ -585,14 +585,18 @@ class PanelManager extends Component {
     if (openPanel === '') return null;
     const panels = [];
 
-    if (enableResize) {
-      panels.push(
-        this.renderUserListResizable(),
-        <div style={{order:2}} className={styles.userlistPad} key={this.padKey} />,
-      );
-    } else {
-      panels.push(this.renderUserList());
-    }
+    panels.push(
+      this.renderUserListResizable(),
+      <div style={{order:2}} className={styles.userlistPad} key={this.padKey} />,
+    );
+    // if (enableResize) {
+    //   panels.push(
+    //     this.renderUserListResizable(),
+    //     <div style={{order:2}} className={styles.userlistPad} key={this.padKey} />,
+    //   );
+    // } else {
+    //   panels.push(this.renderUserList());
+    // }
 
     if (openPanel === 'chat') {
       if (enableResize) {
