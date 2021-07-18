@@ -199,7 +199,7 @@ class VideoListItem extends Component {
           [styles.content]: true,
           [styles.talking]: voiceUser.talking,
         })}
-        onClick={() => FullscreenService.toggleFullScreen(ref)}
+        onClick={() => FullscreenService.toggleFullScreen(this.videoContainer)}
       >
         {
           !videoIsReady
