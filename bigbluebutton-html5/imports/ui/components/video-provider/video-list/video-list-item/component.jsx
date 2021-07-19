@@ -190,6 +190,7 @@ class VideoListItem extends Component {
 
     const { isFirefox } = browserInfo;
     const { isPhone } = deviceInfo;
+    const { isMobile } = deviceInfo;
     const isTethered = isPhone && isPortrait;
 
     return (
@@ -236,7 +237,7 @@ class VideoListItem extends Component {
             autoPlay
             playsInline
           />
-          {videoIsReady && !isPhone && this.renderFullscreenButton()}
+          {videoIsReady && !isMobile && this.renderFullscreenButton()}
         </div>
         { videoIsReady
           && (
