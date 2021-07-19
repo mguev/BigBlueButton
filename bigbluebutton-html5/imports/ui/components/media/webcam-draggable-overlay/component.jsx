@@ -284,7 +284,7 @@ class WebcamDraggable extends PureComponent {
       audioModalIsOpen,
     } = this.props;
 
-    const { isMobile, isTablet, isPortrait } = deviceInfo;
+    const { isMobile } = deviceInfo;
 
     const { resizing, webcamsAreaResizable, hideWebcams } = this.state;
 
@@ -299,7 +299,7 @@ class WebcamDraggable extends PureComponent {
       optimalGrid,
     } = webcamDraggableState;
 
-    const webcamsPlacement = isTablet && !isPortrait ? 'right' : Storage.getItem('webcamsPlacement');
+    const webcamsPlacement = Storage.getItem('webcamsPlacement');
 
     const lastPosition = Storage.getItem('webcamLastPosition') || { x: 0, y: 0 };
 
