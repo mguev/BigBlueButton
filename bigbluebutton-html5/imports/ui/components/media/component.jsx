@@ -50,7 +50,8 @@ export default class Media extends Component {
 
     const { webcamsPlacement: placement } = layoutContextState;
     const placementStorage = Storage.getItem('webcamsPlacement');
-    const webcamsPlacement = placement || placementStorage;
+    const webcamsPlacement = 'left';
+    Storage.SetItem('webcamsPlacement', webcamsPlacement);
 
     const contentClassName = cx({
       [styles.content]: true,
@@ -85,7 +86,7 @@ export default class Media extends Component {
             && ( webcamsPlacement === 'top' || webcamsPlacement === 'bottom' )
               ? '80%'
               : '100%',
-            minHeight: '20%',
+            minHeight: isMobile && window.innerWidth > window.innerHeight ? '50%' : '20%',
             maxWidth: usersVideo.length > 0
             && (
               webcamsPlacement !== 'top'
