@@ -85,7 +85,7 @@ export default class Media extends Component {
             && ( webcamsPlacement === 'top' || webcamsPlacement === 'bottom' )
               ? '80%'
               : '100%',
-            minHeight: isMobile && window.innerWidth > window.innerHeight ? '50%' : '20%',
+            minHeight: '20%',
             maxWidth: usersVideo.length > 0
             && (
               webcamsPlacement !== 'top'
