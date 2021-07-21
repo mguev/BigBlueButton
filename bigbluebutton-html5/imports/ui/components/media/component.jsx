@@ -50,7 +50,9 @@ export default class Media extends Component {
 
     const { webcamsPlacement: placement } = layoutContextState;
     const placementStorage = Storage.getItem('webcamsPlacement');
-    const webcamsPlacement = placement || placementStorage;
+    //const webcamsPlacement = placement || placementStorage;
+    const webcamsPlacement = 'right';
+    Storage.setItem('webcamsPlacement', 'right');
 
     const contentClassName = cx({
       [styles.content]: true,
