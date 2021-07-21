@@ -395,7 +395,7 @@ public:
     autoSwapLayout: true
     hidePresentation: true
     showParticipantsOnLogin: true
-    webcamsDefaultPlacement: 'top'
+    webcamsDefaultPlacement: 'right'
   media:
     stunTurnServersFetchAddress: '/bigbluebutton/api/stuns'
     cacheStunTurnServers: true
