@@ -80,14 +80,12 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamsPlacement === 'floating'),
     });
 
-    const containerClassName = mediaWidth < mediaHeight ? cx({
+    const containerClassName = cx({
       [styles.container]: true,
       [styles.containerV]: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' || webcamsPlacement === 'floating',
       [styles.containerH]: webcamsPlacement === 'left' || webcamsPlacement === 'right',
-    }) : cx({
-      [styles.container]: true,
-      [styles.containerH]: true,
     });
+    
     const { viewParticipantsWebcams } = Settings.dataSaving;
     const showVideo = usersVideo.length > 0 && viewParticipantsWebcams && isMeteorConnected;
     const fullHeight = !showVideo || (webcamsPlacement === 'floating');
@@ -97,6 +95,7 @@ export default class Media extends Component {
         id="container"
         className={containerClassName}
         ref={this.refContainer}
+        style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
