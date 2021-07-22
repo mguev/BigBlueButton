@@ -33,20 +33,20 @@ export default class Media extends Component {
   constructor(props) {
     super(props);
     this.refContainer = React.createRef();
-    this.state = { windowWidth: window.innerWidth, windowHeight: window.innerHeight };
+    //this.state = { windowWidth: window.innerWidth, windowHeight: window.innerHeight };
   }
 
-  componentDidMount(){
-    window.addEventListener('resize', this.handleResize);
-  }
+  // componentDidMount(){
+  //   window.addEventListener('resize', this.handleResize);
+  // }
 
-  componentWillUnmount(){
-    window.removeEventListener('resize', this.handleResize);
-  }
+  // componentWillUnmount(){
+  //   window.removeEventListener('resize', this.handleResize);
+  // }
 
-  handleResize(e){
-    this.setState({windowWidth: window.innerWidth, windowHeight: window.innerHeight });
-  }
+  // handleResize(e){
+  //   this.setState({windowWidth: window.innerWidth, windowHeight: window.innerHeight });
+  // }
 
   render() {
     const {
@@ -65,6 +65,11 @@ export default class Media extends Component {
     const placementStorage = Storage.getItem('webcamsPlacement');
     const webcamsPlacement = placement || placementStorage;
 
+    const {
+      width: mediaWidth,
+      height: mediaHeight,
+    } = layoutContextState.mediaBounds;
+
     const contentClassName = cx({
       [styles.content]: true,
     });
@@ -75,7 +80,7 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamsPlacement === 'floating'),
     });
 
-    const containerClassName = this.state.windowWidth < this.state.windowHeight ? cx({
+    const containerClassName = mediaWidth < mediaHeight ? cx({
       [styles.container]: true,
       [styles.containerV]: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' || webcamsPlacement === 'floating',
       [styles.containerH]: webcamsPlacement === 'left' || webcamsPlacement === 'right',
