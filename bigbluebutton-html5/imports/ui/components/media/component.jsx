@@ -89,13 +89,12 @@ export default class Media extends Component {
     const { viewParticipantsWebcams } = Settings.dataSaving;
     const showVideo = usersVideo.length > 0 && viewParticipantsWebcams && isMeteorConnected;
     const fullHeight = !showVideo || (webcamsPlacement === 'floating');
-
+    //style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
     return (
       <div
         id="container"
         className={containerClassName}
         ref={this.refContainer}
-        style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
