@@ -349,15 +349,15 @@ class WebcamDraggable extends PureComponent {
       [styles.fullHeight]: swapLayout,
     });
 
+    //[styles.overlayToTop]: webcamsPlacement === 'top' && !dragging,
+    // [styles.overlayToRight]: webcamsPlacement === 'right' && !dragging,
+    // [styles.overlayToBottom]: webcamsPlacement === 'bottom' && !dragging,
+    // [styles.overlayToLeft]: webcamsPlacement === 'left' && !dragging,
     const overlayClassName = cx({
       [styles.overlay]: true,
       [styles.hideOverlay]: hideOverlay,
       [styles.floatingOverlay]: dragging,
       [styles.autoWidth]: dragging,
-      [styles.overlayToTop]: webcamsPlacement === 'top' && !dragging,
-      [styles.overlayToRight]: webcamsPlacement === 'right' && !dragging,
-      [styles.overlayToBottom]: webcamsPlacement === 'bottom' && !dragging,
-      [styles.overlayToLeft]: webcamsPlacement === 'left' && !dragging,
       [styles.dragging]: dragging,
     });
 
