@@ -33,6 +33,7 @@ export default class Media extends Component {
   constructor(props) {
     super(props);
     this.refContainer = React.createRef();
+    this.state = { windowWidth: window.innerWidth, windowHeight: window.innerHeight };
   }
 
   componentDidMount(){
@@ -44,7 +45,7 @@ export default class Media extends Component {
   }
 
   handleResize(e){
-    this.setState({windowWidth: window.innerWidth});
+    this.setState({windowWidth: window.innerWidth, windowHeight: window.innerHeight });
   }
 
   render() {
@@ -60,8 +61,6 @@ export default class Media extends Component {
       isMeteorConnected,
     } = this.props;
 
-    const { isPortrait } = deviceInfo;
-
     const { webcamsPlacement: placement } = layoutContextState;
     const placementStorage = Storage.getItem('webcamsPlacement');
     const webcamsPlacement = placement || placementStorage;
@@ -76,7 +75,7 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamsPlacement === 'floating'),
     });
 
-    const containerClassName = !isPortrait ? cx({
+    const containerClassName = !isMobile || this.state.windowWidth < this.state.windowHeight ? cx({
       [styles.container]: true,
       [styles.containerV]: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' || webcamsPlacement === 'floating',
       [styles.containerH]: webcamsPlacement === 'left' || webcamsPlacement === 'right',
