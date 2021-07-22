@@ -491,6 +491,7 @@ class WebcamDraggable extends PureComponent {
               marginRight: 0,
               zIndex: 2,
               display: hideWebcams ? 'none' : undefined,
+              order: mediaWidth < mediaHeight ? '1 !important' : '2 !important'
             }}
           >
             {
