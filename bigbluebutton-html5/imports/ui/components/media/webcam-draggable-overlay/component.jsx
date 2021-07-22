@@ -349,15 +349,15 @@ class WebcamDraggable extends PureComponent {
       [styles.fullHeight]: swapLayout,
     });
 
-    //[styles.overlayToTop]: webcamsPlacement === 'top' && !dragging,
-    // [styles.overlayToRight]: webcamsPlacement === 'right' && !dragging,
-    // [styles.overlayToBottom]: webcamsPlacement === 'bottom' && !dragging,
-    // [styles.overlayToLeft]: webcamsPlacement === 'left' && !dragging,
     const overlayClassName = cx({
       [styles.overlay]: true,
       [styles.hideOverlay]: hideOverlay,
       [styles.floatingOverlay]: dragging,
       [styles.autoWidth]: dragging,
+      [styles.overlayToTop]: webcamsPlacement === 'top' && !dragging,
+      [styles.overlayToRight]: webcamsPlacement === 'right' && !dragging,
+      [styles.overlayToBottom]: webcamsPlacement === 'bottom' && !dragging,
+      [styles.overlayToLeft]: webcamsPlacement === 'left' && !dragging,
       [styles.dragging]: dragging,
     });
 
@@ -418,6 +418,10 @@ class WebcamDraggable extends PureComponent {
       sizeHeight = webcamsAreaSize.height;
     }
     //disabled={swapLayout || isCameraFullscreen || isMobile || resizing}
+    // top: (webcamsPlacement === 'bottom') && !swapLayout,
+    // bottom: (webcamsPlacement === 'top') && !swapLayout,
+    // left: (webcamsPlacement === 'right') && !swapLayout,
+    // right: (webcamsPlacement === 'left') && !swapLayout,
     return (
       <Fragment>
         <div
@@ -472,10 +476,7 @@ class WebcamDraggable extends PureComponent {
               this.onResizeStop(d.width, d.height);
             }}
             enable={{
-              top: (webcamsPlacement === 'bottom') && !swapLayout,
-              bottom: (webcamsPlacement === 'top') && !swapLayout,
-              left: (webcamsPlacement === 'right') && !swapLayout,
-              right: (webcamsPlacement === 'left') && !swapLayout,
+              left: true,
               topLeft: false,
               topRight: false,
               bottomLeft: false,
@@ -491,7 +492,6 @@ class WebcamDraggable extends PureComponent {
               marginRight: 0,
               zIndex: 2,
               display: hideWebcams ? 'none' : undefined,
-              order: mediaWidth < mediaHeight ? '1 !important' : '2 !important'
             }}
           >
             {
