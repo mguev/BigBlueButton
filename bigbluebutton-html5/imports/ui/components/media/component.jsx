@@ -90,12 +90,14 @@ export default class Media extends Component {
     const showVideo = usersVideo.length > 0 && viewParticipantsWebcams && isMeteorConnected;
     const fullHeight = !showVideo || (webcamsPlacement === 'floating');
 
+    const isWidthGreater = window.innerWidth > window.innerHeight;
+    const mobileFlexDirection = isWidthGreater ? 'row' : 'column';
     return (
       <div
         id="container"
         className={containerClassName}
         ref={this.refContainer}
-        style={{flexDirection: window.innerWidth < window.innerHeight ? 'column' : 'row'}}
+        style={{flexDirection: isMobile ? mobileFlexDirection : ''}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
@@ -105,7 +107,7 @@ export default class Media extends Component {
             && ( webcamsPlacement === 'top' || webcamsPlacement === 'bottom' )
               ? '80%'
               : '100%',
-            minHeight: isMobile && window.innerWidth > window.innerHeight ? '50%' : '20%',
+            minHeight: isMobile && isWidthGreater ? '50%' : '20%',
             maxWidth: usersVideo.length > 0
             && (
               webcamsPlacement !== 'top'
