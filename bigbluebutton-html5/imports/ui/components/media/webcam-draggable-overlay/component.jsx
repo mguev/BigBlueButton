@@ -417,7 +417,7 @@ class WebcamDraggable extends PureComponent {
       sizeWidth = webcamsAreaSize.width;
       sizeHeight = webcamsAreaSize.height;
     }
-
+    //disabled={swapLayout || isCameraFullscreen || isMobile || resizing}
     return (
       <Fragment>
         <div
