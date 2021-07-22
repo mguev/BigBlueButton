@@ -62,10 +62,13 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamsPlacement === 'floating'),
     });
 
-    const containerClassName = cx({
+    const containerClassName = !isMobile ? cx({
       [styles.container]: true,
       [styles.containerV]: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' || webcamsPlacement === 'floating',
       [styles.containerH]: webcamsPlacement === 'left' || webcamsPlacement === 'right',
+    }) : cx({
+      [styles.container]: true,
+      [styles.containerH]: true,
     });
     const { viewParticipantsWebcams } = Settings.dataSaving;
     const showVideo = usersVideo.length > 0 && viewParticipantsWebcams && isMeteorConnected;
