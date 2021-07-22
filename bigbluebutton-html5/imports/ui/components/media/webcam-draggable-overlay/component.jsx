@@ -299,7 +299,8 @@ class WebcamDraggable extends PureComponent {
       optimalGrid,
     } = webcamDraggableState;
 
-    const webcamsPlacement = Storage.getItem('webcamsPlacement');
+    // const webcamsPlacement = Storage.getItem('webcamsPlacement');
+    const webcamsPlacement = 'left';
 
     const lastPosition = Storage.getItem('webcamLastPosition') || { x: 0, y: 0 };
 
@@ -418,10 +419,6 @@ class WebcamDraggable extends PureComponent {
       sizeHeight = webcamsAreaSize.height;
     }
     //disabled={swapLayout || isCameraFullscreen || isMobile || resizing}
-    // top: (webcamsPlacement === 'bottom') && !swapLayout,
-    // bottom: (webcamsPlacement === 'top') && !swapLayout,
-    // left: (webcamsPlacement === 'right') && !swapLayout,
-    // right: (webcamsPlacement === 'left') && !swapLayout,
     return (
       <Fragment>
         <div
@@ -476,7 +473,10 @@ class WebcamDraggable extends PureComponent {
               this.onResizeStop(d.width, d.height);
             }}
             enable={{
-              left: true,
+              top: (webcamsPlacement === 'bottom') && !swapLayout,
+              bottom: (webcamsPlacement === 'top') && !swapLayout,
+              left: (webcamsPlacement === 'right') && !swapLayout,
+              right: (webcamsPlacement === 'left') && !swapLayout,
               topLeft: false,
               topRight: false,
               bottomLeft: false,
