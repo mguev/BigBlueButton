@@ -48,6 +48,8 @@ export default class Media extends Component {
       isMeteorConnected,
     } = this.props;
 
+    const { isPortrait } = deviceInfo;
+
     const { webcamsPlacement: placement } = layoutContextState;
     const placementStorage = Storage.getItem('webcamsPlacement');
     const webcamsPlacement = placement || placementStorage;
@@ -62,7 +64,7 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamsPlacement === 'floating'),
     });
 
-    const containerClassName = !isMobile ? cx({
+    const containerClassName = !isPortrait ? cx({
       [styles.container]: true,
       [styles.containerV]: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' || webcamsPlacement === 'floating',
       [styles.containerH]: webcamsPlacement === 'left' || webcamsPlacement === 'right',
