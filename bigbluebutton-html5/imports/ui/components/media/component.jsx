@@ -75,7 +75,7 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamsPlacement === 'floating'),
     });
 
-    const containerClassName = !isMobile || this.state.windowWidth < this.state.windowHeight ? cx({
+    const containerClassName = this.state.windowWidth < this.state.windowHeight ? cx({
       [styles.container]: true,
       [styles.containerV]: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' || webcamsPlacement === 'floating',
       [styles.containerH]: webcamsPlacement === 'left' || webcamsPlacement === 'right',
