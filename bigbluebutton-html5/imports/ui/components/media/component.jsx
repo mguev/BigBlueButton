@@ -92,7 +92,7 @@ export default class Media extends Component {
     const fullHeight = !showVideo || (webcamsPlacement === 'floating');
     //style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
     
-    // (
+    // {showVideo && !isMobile ? (
     //   <WebcamDraggable
     //     refMediaContainer={this.refContainer}
     //     swapLayout={swapLayout}
@@ -103,7 +103,12 @@ export default class Media extends Component {
     //     audioModalIsOpen={audioModalIsOpen}
     //     usersVideo={usersVideo}
     //   />
-    // )
+    // ) : showVideo ? (
+    //   <VideoProviderContainer
+    //     swapLayout={swapLayout}
+    //   />
+    // ) : null}
+
     return (
       <div
         id="container"
@@ -136,17 +141,6 @@ export default class Media extends Component {
           {children}
         </div>
         {showVideo && !isMobile ? (
-          <WebcamDraggable
-            refMediaContainer={this.refContainer}
-            swapLayout={swapLayout}
-            singleWebcam={singleWebcam}
-            usersVideoLenght={usersVideo.length}
-            hideOverlay={hideOverlay}
-            disableVideo={disableVideo}
-            audioModalIsOpen={audioModalIsOpen}
-            usersVideo={usersVideo}
-          />
-        ) : showVideo ? (
           <VideoProviderContainer
             swapLayout={swapLayout}
           />
