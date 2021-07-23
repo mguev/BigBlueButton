@@ -37,6 +37,7 @@ class WebcamDraggable extends PureComponent {
 
     const { layoutContextState } = props;
     const { webcamsPlacement, mediaBounds } = layoutContextState;
+    webcamsPlacement = 'left';
     this.state = {
       webcamsAreaResizable: {
         width: webcamsPlacement === 'top' || webcamsPlacement === 'bottom' ? mediaBounds.width : mediaBounds.width * WEBCAMSAREA_MIN_PERCENT,
