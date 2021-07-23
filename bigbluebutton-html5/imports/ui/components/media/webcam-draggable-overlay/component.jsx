@@ -213,20 +213,10 @@ class WebcamDraggable extends PureComponent {
 
   handleLayoutSizesSets() {
     const { layoutContextState } = this.props;
-    const { mediaBounds, webcamsAreaSize } = layoutContextState;
-    const {
-      width: mediaWidth,
-      height: mediaHeight,
-    } = mediaBounds;
-    const { isMobile } = deviceInfo;
+    const { webcamsAreaSize } = layoutContextState;
 
-    if(isMobile && mediaWidth > mediaHeight){
-      this.forceWebcamDragStop();
-    }
-    else{
-      this.setWebcamsAreaResizable(webcamsAreaSize.width, webcamsAreaSize.height);
-      this.setHideWebcams(false);
-    }
+    this.setWebcamsAreaResizable(webcamsAreaSize.width, webcamsAreaSize.height);
+    this.setHideWebcams(false);
   }
 
   handleWebcamDragStart() {
@@ -280,19 +270,6 @@ class WebcamDraggable extends PureComponent {
         });
       }
     }
-    webcamDraggableDispatch({ type: 'dragEnd' });
-    window.dispatchEvent(new Event('webcamPlacementChange'));
-  }
-
-  forceWebcamDragStop(){
-    const { webcamDraggableDispatch, layoutContextDispatch } = this.props;
-
-    this.setHideWebcams(true);
-
-    layoutContextDispatch({type: 'setAutoArrangeLayout', value: false});
-
-    layoutContextDispatch({type: 'setWebcamsPlacement', value: 'left'});
-
     webcamDraggableDispatch({ type: 'dragEnd' });
     window.dispatchEvent(new Event('webcamPlacementChange'));
   }
