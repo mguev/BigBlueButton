@@ -218,8 +218,9 @@ class WebcamDraggable extends PureComponent {
       width: mediaWidth,
       height: mediaHeight,
     } = mediaBounds;
+    const { isMobile } = deviceInfo;
 
-    if(mediaWidth > mediaHeight){
+    if(isMobile && mediaWidth > mediaHeight){
       this.forceWebcamDragStop();
     }
     else{
