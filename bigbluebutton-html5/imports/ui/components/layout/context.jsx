@@ -4,7 +4,7 @@ import Storage from '/imports/ui/services/storage/session';
 const { webcamsDefaultPlacement } = Meteor.settings.public.layout;
 
 export const LayoutContext = createContext();
-
+//webcamsPlacement: webcamsDefaultPlacement || 'top',
 const initialState = {
   autoArrangeLayout: true,
   webcamsAreaResizing: false,
@@ -50,7 +50,7 @@ const initialState = {
   },
   webcamsAreaUserSetsHeight: 0,
   webcamsAreaUserSetsWidth: 0,
-  webcamsPlacement: webcamsDefaultPlacement || 'top',
+  webcamsPlacement: 'left',
   presentationAreaSize: {
     width: 0,
     height: 0,
