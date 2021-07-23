@@ -6,6 +6,7 @@ import Settings from '/imports/ui/services/settings';
 import WebcamDraggable from './webcam-draggable-overlay/component';
 import { styles } from './styles';
 import Storage from '../../services/storage/session';
+import VideoProviderContainer from '/imports/ui/components/video-provider/container';
 
 const { isMobile } = deviceInfo;
 
@@ -90,6 +91,19 @@ export default class Media extends Component {
     const showVideo = usersVideo.length > 0 && viewParticipantsWebcams && isMeteorConnected;
     const fullHeight = !showVideo || (webcamsPlacement === 'floating');
     //style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
+    
+    // (
+    //   <WebcamDraggable
+    //     refMediaContainer={this.refContainer}
+    //     swapLayout={swapLayout}
+    //     singleWebcam={singleWebcam}
+    //     usersVideoLenght={usersVideo.length}
+    //     hideOverlay={hideOverlay}
+    //     disableVideo={disableVideo}
+    //     audioModalIsOpen={audioModalIsOpen}
+    //     usersVideo={usersVideo}
+    //   />
+    // )
     return (
       <div
         id="container"
@@ -122,15 +136,8 @@ export default class Media extends Component {
           {children}
         </div>
         {showVideo ? (
-          <WebcamDraggable
-            refMediaContainer={this.refContainer}
+          <VideoProviderContainer
             swapLayout={swapLayout}
-            singleWebcam={singleWebcam}
-            usersVideoLenght={usersVideo.length}
-            hideOverlay={hideOverlay}
-            disableVideo={disableVideo}
-            audioModalIsOpen={audioModalIsOpen}
-            usersVideo={usersVideo}
           />
         ) : null}
       </div>
