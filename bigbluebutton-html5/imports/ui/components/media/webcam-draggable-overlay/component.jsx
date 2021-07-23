@@ -418,6 +418,7 @@ class WebcamDraggable extends PureComponent {
       sizeHeight = webcamsAreaSize.height;
     }
     //disabled={swapLayout || isCameraFullscreen || isMobile || resizing}
+    //disabled={true}
     return (
       <Fragment>
         <div
@@ -445,7 +446,7 @@ class WebcamDraggable extends PureComponent {
           onStart={this.handleWebcamDragStart}
           onStop={this.handleWebcamDragStop}
           onMouseDown={e => e.preventDefault()}
-          disabled={true}
+          disabled={swapLayout || isCameraFullscreen || isMobile || resizing}
           position={position}
         >
           <Resizable

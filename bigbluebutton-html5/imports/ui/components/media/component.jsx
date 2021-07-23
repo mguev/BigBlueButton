@@ -63,8 +63,7 @@ export default class Media extends Component {
 
     const { webcamsPlacement: placement } = layoutContextState;
     const placementStorage = Storage.getItem('webcamsPlacement');
-    // const webcamsPlacement = placement || placementStorage;
-    const webcamsPlacement = 'left';
+    const webcamsPlacement = placement || placementStorage;
 
     const {
       width: mediaWidth,
@@ -96,7 +95,6 @@ export default class Media extends Component {
         id="container"
         className={containerClassName}
         ref={this.refContainer}
-        style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
