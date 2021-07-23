@@ -11,6 +11,7 @@ import logger from '/imports/startup/client/logger';
 import playAndRetry from '/imports/utils/mediaElementPlayRetry';
 import VideoService from '/imports/ui/components/video-provider/service';
 import Button from '/imports/ui/components/button/component';
+import deviceInfo from '/imports/utils/deviceInfo';
 
 const propTypes = {
   streams: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -432,6 +433,8 @@ class VideoList extends Component {
       [styles.videoList]: true,
     });
 
+    const { isMobile } = deviceInfo;
+
     // style={{
     //   width: `${optimalGrid.width}px`,
     //   height: `${optimalGrid.height}px`,
@@ -445,7 +448,7 @@ class VideoList extends Component {
           this.canvas = ref;
         }}
         className={canvasClassName}
-        style={{width: '12%'}}
+        style={{width: isMobile ? '12%' : ''}}
       >
 
         {this.renderPreviousPageButton()}
@@ -457,10 +460,10 @@ class VideoList extends Component {
             }}
             className={videoListClassName}
             style={{
-              width: '103px',
-              height: '130px',
-              gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
-              gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
+              width: isMobile ? '103px' : `${optimalGrid.width}px`,
+              height: isMobile ? '130px' : `${optimalGrid.height}px`,
+              gridTemplateColumns: isMobile ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
+              gridTemplateRows: isMobile ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
             {this.renderVideoList()}

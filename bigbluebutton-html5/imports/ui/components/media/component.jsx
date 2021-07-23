@@ -140,7 +140,18 @@ export default class Media extends Component {
         >
           {children}
         </div>
-        {showVideo ? (
+        {showVideo && !isMobile ? (
+          <WebcamDraggable
+            refMediaContainer={this.refContainer}
+            swapLayout={swapLayout}
+            singleWebcam={singleWebcam}
+            usersVideoLenght={usersVideo.length}
+            hideOverlay={hideOverlay}
+            disableVideo={disableVideo}
+            audioModalIsOpen={audioModalIsOpen}
+            usersVideo={usersVideo}
+          />
+        ) : showVideo ? (
           <VideoProviderContainer
             swapLayout={swapLayout}
           />
