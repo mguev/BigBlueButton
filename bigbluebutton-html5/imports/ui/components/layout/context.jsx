@@ -50,7 +50,7 @@ const initialState = {
   },
   webcamsAreaUserSetsHeight: 0,
   webcamsAreaUserSetsWidth: 0,
-  webcamsPlacement: 'left',
+  webcamsPlacement: webcamsDefaultPlacement || 'top',
   presentationAreaSize: {
     width: 0,
     height: 0,
