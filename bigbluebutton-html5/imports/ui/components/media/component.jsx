@@ -140,7 +140,7 @@ export default class Media extends Component {
         >
           {children}
         </div>
-        {showVideo && !isMobile ? (
+        {showVideo ? (
           <VideoProviderContainer
             swapLayout={swapLayout}
           />
