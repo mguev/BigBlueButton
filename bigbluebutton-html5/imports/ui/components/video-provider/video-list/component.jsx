@@ -432,6 +432,12 @@ class VideoList extends Component {
       [styles.videoList]: true,
     });
 
+    // style={{
+    //   width: `${optimalGrid.width}px`,
+    //   height: `${optimalGrid.height}px`,
+    //   gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
+    //   gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
+    // }}
 
     return (
       <div
@@ -439,6 +445,7 @@ class VideoList extends Component {
           this.canvas = ref;
         }}
         className={canvasClassName}
+        style={{width: '12%'}}
       >
 
         {this.renderPreviousPageButton()}
@@ -450,10 +457,10 @@ class VideoList extends Component {
             }}
             className={videoListClassName}
             style={{
-              width: `${optimalGrid.height}px`,
-              height: `${optimalGrid.width}px`,
-              gridTemplateColumns: `repeat(${optimalGrid.rows}, 1fr)`,
-              gridTemplateRows: `repeat(${optimalGrid.columns}, 1fr)`,
+              width: '103px',
+              height: '130px',
+              gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
+              gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
             {this.renderVideoList()}
