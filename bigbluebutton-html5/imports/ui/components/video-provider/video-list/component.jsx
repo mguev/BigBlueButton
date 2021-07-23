@@ -139,9 +139,7 @@ class VideoList extends Component {
   setOptimalGrid() {
     const { streams, webcamDraggableDispatch, totalNumberOfStreams } = this.props;
     let numItems = totalNumberOfStreams;
-    logger.info({
-      logCode: 'optimal_grid_setter_start'
-    }, '******Running setOptimalGrid');
+    
     if (numItems < 1 || !this.canvas || !this.grid) {
       return;
     }
@@ -161,10 +159,7 @@ class VideoList extends Component {
           canvasWidth, canvasHeight, gridGutter,
           ASPECT_RATIO, numItems, col,
         );
-        logger.info({
-          logCode: 'optimal_grid_setter',
-          extraInfo: { testGrid }
-        }, `Test grid properties.`);
+       
         // We need a minimun of 2 rows and columns for the focused
         const focusedConstraint = hasFocusedItem ? testGrid.rows > 1 && testGrid.columns > 1 : true;
         const betterThanCurrent = testGrid.filledArea > currentGrid.filledArea;
@@ -455,10 +450,10 @@ class VideoList extends Component {
             }}
             className={videoListClassName}
             style={{
-              width: `${optimalGrid.width}px`,
-              height: `${optimalGrid.height}px`,
-              gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
-              gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
+              width: `${optimalGrid.height}px`,
+              height: `${optimalGrid.width}px`,
+              gridTemplateColumns: `repeat(${optimalGrid.rows}, 1fr)`,
+              gridTemplateRows: `repeat(${optimalGrid.columns}, 1fr)`,
             }}
           >
             {this.renderVideoList()}
