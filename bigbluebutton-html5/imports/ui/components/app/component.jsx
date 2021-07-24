@@ -269,12 +269,14 @@ class App extends Component {
     const { navbar } = this.props;
 
     if (!navbar) return null;
-
+    
+    //height: NAVBAR_HEIGHT,
+    //className={styles.navbar}
     return (
       <header
-        className={styles.navbar}
+        className={styles.navbarSm}
         style={{
-          height: NAVBAR_HEIGHT,
+          height: '23px',
         }}
       >
         {navbar}

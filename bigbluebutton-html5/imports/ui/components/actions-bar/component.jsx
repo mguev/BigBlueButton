@@ -43,7 +43,7 @@ class ActionsBar extends PureComponent {
         className={styles.actionsbar}
         style={{
           height: '29px',
-          marginBottom: '4pt'
+          marginBottom: '6pt'
         }}
       >
         <div className={styles.left}>
