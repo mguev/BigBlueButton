@@ -31,7 +31,7 @@ const CaptionsButton = ({ intl, isActive, handleOnClick }) => (
     ghost={!isActive}
     hideLabel
     circle
-    size="lg"
+    size="md"
     onClick={handleOnClick}
     id={isActive ? 'stop-captions-button' : 'start-captions-button'}
   />

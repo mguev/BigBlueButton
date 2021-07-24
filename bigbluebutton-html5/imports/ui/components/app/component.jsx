@@ -374,7 +374,7 @@ class App extends Component {
     } = this.props;
 
     return (
-      <main className={styles.main} style={{height:'446px'}}>
+      <main className={styles.main}>
         {this.renderActivityCheck()}
         {this.renderUserInformation()}
         <BannerBarContainer />
