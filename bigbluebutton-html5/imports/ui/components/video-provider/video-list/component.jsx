@@ -442,13 +442,20 @@ class VideoList extends Component {
     //   gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
     // }}
 
+    // style={{
+    //   width: isMobile ? '103px' : `${optimalGrid.width}px`,
+    //   height: isMobile ? '130px' : `${optimalGrid.height}px`,
+    //   gridTemplateColumns: isMobile ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
+    //   gridTemplateRows: isMobile ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
+    // }}
+
     return (
       <div
         ref={(ref) => {
           this.canvas = ref;
         }}
         className={canvasClassName}
-        style={{width: isMobile ? '12%' : ''}}
+        style={{width: false ? '12%' : ''}}
       >
 
         {this.renderPreviousPageButton()}
@@ -460,10 +467,10 @@ class VideoList extends Component {
             }}
             className={videoListClassName}
             style={{
-              width: isMobile ? '103px' : `${optimalGrid.width}px`,
-              height: isMobile ? '130px' : `${optimalGrid.height}px`,
-              gridTemplateColumns: isMobile ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
-              gridTemplateRows: isMobile ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
+              width: false ? '103px' : `${optimalGrid.width}px`,
+              height: false ? '130px' : `${optimalGrid.height}px`,
+              gridTemplateColumns: false ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
+              gridTemplateRows: false ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
             {this.renderVideoList()}
