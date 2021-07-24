@@ -334,9 +334,11 @@ class App extends Component {
 
     if (!actionsbar) return null;
 
+    // className={styles.actionsbar}
+
     return (
       <section
-        className={styles.actionsbar}
+        className={styles.actionsbarSm}
         aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
         aria-hidden={this.shouldAriaHide()}
       >

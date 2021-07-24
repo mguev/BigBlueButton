@@ -36,11 +36,14 @@ class ActionsBar extends PureComponent {
       shortcuts,
     } = this.props;
 
+    //height: ACTIONSBAR_HEIGHT,
+    
     return (
       <div
         className={styles.actionsbar}
         style={{
-          height: ACTIONSBAR_HEIGHT,
+          height: '29px',
+          marginBottom: '4pt'
         }}
       >
         <div className={styles.left}>
