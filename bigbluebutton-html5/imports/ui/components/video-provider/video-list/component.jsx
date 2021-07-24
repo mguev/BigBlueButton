@@ -467,10 +467,10 @@ class VideoList extends Component {
             }}
             className={videoListClassName}
             style={{
-              width: false ? '103px' : `${optimalGrid.width}px`,
-              height: false ? '130px' : `${optimalGrid.height}px`,
-              gridTemplateColumns: false ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
-              gridTemplateRows: false ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
+              width: true ? '103px' : `${optimalGrid.width}px`,
+              height: true ? '130px' : `${optimalGrid.height}px`,
+              gridTemplateColumns: true ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
+              gridTemplateRows: true ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
             {this.renderVideoList()}

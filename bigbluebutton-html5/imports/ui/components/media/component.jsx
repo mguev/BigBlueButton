@@ -114,6 +114,7 @@ export default class Media extends Component {
         id="container"
         className={containerClassName}
         ref={this.refContainer}
+        style={{flexDirection : 'row'}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
