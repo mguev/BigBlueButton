@@ -446,7 +446,7 @@ class WebcamDraggable extends PureComponent {
           onStart={this.handleWebcamDragStart}
           onStop={this.handleWebcamDragStop}
           onMouseDown={e => e.preventDefault()}
-          disabled={swapLayout || isCameraFullscreen || isMobile || resizing}
+          disabled={true}
           position={position}
         >
           <Resizable
