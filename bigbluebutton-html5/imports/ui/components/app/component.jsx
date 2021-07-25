@@ -276,7 +276,7 @@ class App extends Component {
       <header
         className={styles.navbarSm}
         style={{
-          height: '23px',
+          height: '29px',
         }}
       >
         {navbar}
