@@ -236,7 +236,7 @@ class VideoListItem extends Component {
             autoPlay
             playsInline
           />
-          {videoIsReady && !isMobile && this.renderFullscreenButton()}
+          {videoIsReady && this.renderFullscreenButton()}
         </div>
         { videoIsReady
           && (
