@@ -286,7 +286,7 @@ class VideoList extends Component {
 
   renderMobilePageButtons(){
     const { numberOfPages } = this.props;
-    // if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
+     if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
 
     return <div
       style={{order: '2', position:'relative', flexDirection:'column', rowGap:'1px', marginLeft: '1px'}}
