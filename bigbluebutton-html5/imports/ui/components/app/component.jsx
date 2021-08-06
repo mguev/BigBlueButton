@@ -274,11 +274,18 @@ class App extends Component {
     
     //height: NAVBAR_HEIGHT,
     //className={styles.navbar}
+
+    // <header
+    // className={isMobile ? styles.navbarSm : styles.navbar}
+    // style={{
+    //   height:isMobile ? '29px' : NAVBAR_HEIGHT,
+    // }}
+
     return (
       <header
-        className={isMobile ? styles.navbarSm : styles.navbar}
+        className={styles.navbar}
         style={{
-          height:isMobile ? '29px' : NAVBAR_HEIGHT,
+          height:NAVBAR_HEIGHT,
         }}
       >
         {navbar}

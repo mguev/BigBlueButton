@@ -435,20 +435,6 @@ class VideoList extends Component {
 
     const { isMobile } = deviceInfo;
 
-    // style={{
-    //   width: `${optimalGrid.width}px`,
-    //   height: `${optimalGrid.height}px`,
-    //   gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
-    //   gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
-    // }}
-
-    // style={{
-    //   width: isMobile ? '103px' : `${optimalGrid.width}px`,
-    //   height: isMobile ? '130px' : `${optimalGrid.height}px`,
-    //   gridTemplateColumns: isMobile ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
-    //   gridTemplateRows: isMobile ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
-    // }}
-
     return (
       <div
         ref={(ref) => {
@@ -469,8 +455,8 @@ class VideoList extends Component {
             style={{
               width: isMobile ? '103px' : `${optimalGrid.width}px`,
               height: isMobile ? '130px' : `${optimalGrid.height}px`,
-              gridTemplateColumns: isMobile ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
-              gridTemplateRows: isMobile ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
+              gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
+              gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
             {this.renderVideoList()}
