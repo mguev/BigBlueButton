@@ -289,13 +289,15 @@ class VideoList extends Component {
     if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
 
     return <div
-      style={{order: '1', position:'relative', flex:'column', rowGap:'1px', marginLeft: '1px'}}
+      style={{order: '1', position:'relative', flexDirection:'column', rowGap:'1px', marginLeft: '1px'}}
     >
       <div style={{order: '1', position:'relative'}}>
-        {this.renderPreviousPageButton()}
+        {/* {this.renderPreviousPageButton()} */
+        <h1>Hello</h1>}
       </div>
       <div style={{order:'2', position:'relative'}}>
-        {this.renderNextPageButton()}
+        {/* {this.renderNextPageButton()} */
+        <h1>World</h1>}
       </div>
     </div>
   }
