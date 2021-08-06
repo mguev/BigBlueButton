@@ -441,10 +441,16 @@ class VideoList extends Component {
           this.canvas = ref;
         }}
         className={canvasClassName}
-        style={{width: isMobile ? '23%' : ''}}
+        style={{width: isMobile ? '12%' : ''}}
       >
-
-        {this.renderPreviousPageButton()}
+        <div
+        ref={(ref) => {
+          this.grid = ref;
+        }}
+        className={videoListClassName}
+        >
+          {this.renderPreviousPageButton()}
+        </div>
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -459,7 +465,7 @@ class VideoList extends Component {
               gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
-            {this.renderVideoList()}
+            {/* {this.renderVideoList()} */}
           </div>
         )}
         { !autoplayBlocked ? null : (
