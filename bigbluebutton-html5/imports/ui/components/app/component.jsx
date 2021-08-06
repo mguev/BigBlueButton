@@ -37,6 +37,8 @@ const DESKTOP_FONT_SIZE = APP_CONFIG.desktopFontSize;
 const MOBILE_FONT_SIZE = APP_CONFIG.mobileFontSize;
 const ENABLE_NETWORK_MONITORING = Meteor.settings.public.networkMonitoring.enableNetworkMonitoring;
 
+const { isMobile } = deviceInfo;
+
 const intlMessages = defineMessages({
   userListLabel: {
     id: 'app.userList.label',
@@ -127,7 +129,7 @@ class App extends Component {
       locale, notify, intl, validIOSVersion, startBandwidthMonitoring, handleNetworkConnection,
     } = this.props;
     const { browserName } = browserInfo;
-    const { isMobile, osName } = deviceInfo;
+    const { osName } = deviceInfo;
 
     MediaService.setSwapLayout();
     Modal.setAppElement('#app');
@@ -274,9 +276,9 @@ class App extends Component {
     //className={styles.navbar}
     return (
       <header
-        className={styles.navbarSm}
+        className={isMobile ? styles.navbarSm : styles.navbar}
         style={{
-          height: '29px',
+          height:isMobile ? '29px' : NAVBAR_HEIGHT,
         }}
       >
         {navbar}
@@ -340,7 +342,7 @@ class App extends Component {
 
     return (
       <section
-        className={styles.actionsbarSm}
+        className={isMobile ? styles.actionsbarSm : styles.actionsbar}
         aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
         aria-hidden={this.shouldAriaHide()}
       >

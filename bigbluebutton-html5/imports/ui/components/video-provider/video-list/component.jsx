@@ -455,7 +455,7 @@ class VideoList extends Component {
           this.canvas = ref;
         }}
         className={canvasClassName}
-        style={{width: true ? '12%' : ''}}
+        style={{width: isMobile ? '12%' : ''}}
       >
 
         {this.renderPreviousPageButton()}
@@ -467,10 +467,10 @@ class VideoList extends Component {
             }}
             className={videoListClassName}
             style={{
-              width: true ? '103px' : `${optimalGrid.width}px`,
-              height: true ? '130px' : `${optimalGrid.height}px`,
-              gridTemplateColumns: true ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
-              gridTemplateRows: true ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
+              width: isMobile ? '103px' : `${optimalGrid.width}px`,
+              height: isMobile ? '130px' : `${optimalGrid.height}px`,
+              gridTemplateColumns: isMobile ? `repeat(${optimalGrid.columns}, 1fr)` : `repeat(${optimalGrid.rows}, 1fr)`,
+              gridTemplateRows: isMobile ? `repeat(${optimalGrid.rows}, 1fr)` : `repeat(${optimalGrid.columns}, 1fr)`,
             }}
           >
             {this.renderVideoList()}

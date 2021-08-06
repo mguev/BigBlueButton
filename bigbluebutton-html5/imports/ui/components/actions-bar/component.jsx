@@ -10,6 +10,9 @@ import ScreenshareButtonContainer from '/imports/ui/components/actions-bar/scree
 import AudioControlsContainer from '../audio/audio-controls/container';
 import JoinVideoOptionsContainer from '../video-provider/video-button/container';
 import PresentationOptionsContainer from './presentation-options/component';
+import deviceInfo from '/imports/utils/deviceInfo';
+
+const { isMobile } = deviceInfo;
 
 class ActionsBar extends PureComponent {
  
@@ -42,8 +45,8 @@ class ActionsBar extends PureComponent {
       <div
         className={styles.actionsbar}
         style={{
-          height: '29px',
-          marginBottom: '6pt'
+          height: isMobile ? '29px' : ACTIONSBAR_HEIGHT,
+          marginBottom: isMobile ? '6pt' : ''
         }}
       >
         <div className={styles.left}>

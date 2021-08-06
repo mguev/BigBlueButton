@@ -34,20 +34,7 @@ export default class Media extends Component {
   constructor(props) {
     super(props);
     this.refContainer = React.createRef();
-    //this.state = { windowWidth: window.innerWidth, windowHeight: window.innerHeight };
   }
-
-  // componentDidMount(){
-  //   window.addEventListener('resize', this.handleResize);
-  // }
-
-  // componentWillUnmount(){
-  //   window.removeEventListener('resize', this.handleResize);
-  // }
-
-  // handleResize(e){
-  //   this.setState({windowWidth: window.innerWidth, windowHeight: window.innerHeight });
-  // }
 
   render() {
     const {
@@ -90,43 +77,25 @@ export default class Media extends Component {
     const { viewParticipantsWebcams } = Settings.dataSaving;
     const showVideo = usersVideo.length > 0 && viewParticipantsWebcams && isMeteorConnected;
     const fullHeight = !showVideo || (webcamsPlacement === 'floating');
-    //style={{flexDirection: mediaWidth < mediaHeight ? 'column' : 'row'}}
-    
-    // {showVideo && !isMobile ? (
-    //   <WebcamDraggable
-    //     refMediaContainer={this.refContainer}
-    //     swapLayout={swapLayout}
-    //     singleWebcam={singleWebcam}
-    //     usersVideoLenght={usersVideo.length}
-    //     hideOverlay={hideOverlay}
-    //     disableVideo={disableVideo}
-    //     audioModalIsOpen={audioModalIsOpen}
-    //     usersVideo={usersVideo}
-    //   />
-    // ) : showVideo ? (
-    //   <VideoProviderContainer
-    //     swapLayout={swapLayout}
-    //   />
-    // ) : null}
 
-    // maxHeight: usersVideo.length > 0
-    //         && ( webcamsPlacement !== 'left' || webcamsPlacement !== 'right' )
-    //         && ( webcamsPlacement === 'top' || webcamsPlacement === 'bottom' )
-    //           ? '80%'
-    //           : '100%'
+    let customMaxHeight = usersVideo.length > 0
+            && ( webcamsPlacement !== 'left' || webcamsPlacement !== 'right' )
+            && ( webcamsPlacement === 'top' || webcamsPlacement === 'bottom' )
+              ? '80%'
+              : '100%';
 
     return (
       <div
         id="container"
         className={containerClassName}
         ref={this.refContainer}
-        style={{flexDirection : 'row'}}
+        style={{flexDirection : isMobile ? 'row' : ''}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
             height: '100%',
-            maxHeight: '100%',
+            maxHeight: isMobile ? '100%' : customMaxHeight,
             minHeight: isMobile && window.innerWidth > window.innerHeight ? '50%' : '20%',
             maxWidth: usersVideo.length > 0
             && (
@@ -144,7 +113,7 @@ export default class Media extends Component {
         >
           {children}
         </div>
-        {false ? (
+        {showVideo && !isMobile ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
             swapLayout={swapLayout}

@@ -4,6 +4,9 @@ import cx from 'classnames';
 import { defineMessages, injectIntl } from 'react-intl';
 import { styles } from '/imports/ui/components/actions-bar/styles';
 import Button from '/imports/ui/components/button/component';
+import deviceInfo from '/imports/utils/deviceInfo';
+
+const { isMobile } = deviceInfo;
 
 const propTypes = {
   intl: PropTypes.object.isRequired,
@@ -31,7 +34,7 @@ const CaptionsButton = ({ intl, isActive, handleOnClick }) => (
     ghost={!isActive}
     hideLabel
     circle
-    size="md"
+    size= {isMobile ? "md" : "lg"}
     onClick={handleOnClick}
     id={isActive ? 'stop-captions-button' : 'start-captions-button'}
   />
