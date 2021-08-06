@@ -444,7 +444,7 @@ class VideoList extends Component {
         style={{width: isMobile ? '12%' : ''}}
       >
 
-        {this.renderPreviousPageButton()}
+        {!isMobile && this.renderPreviousPageButton()}
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -470,7 +470,7 @@ class VideoList extends Component {
           />
         )}
 
-        {this.renderNextPageButton()}
+        {!isMobile && this.renderNextPageButton()}
 
       </div>
     );
