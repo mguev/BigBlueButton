@@ -283,9 +283,9 @@ class App extends Component {
 
     return (
       <header
-        className={styles.navbar}
+        className={isMobile ? styles.navbarSm : styles.navbar }
         style={{
-          height:NAVBAR_HEIGHT,
+          height:isMobile ? '29px' :toString(NAVBAR_HEIGHT),
         }}
       >
         {navbar}
