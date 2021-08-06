@@ -292,12 +292,10 @@ class VideoList extends Component {
       style={{order: '1', position:'relative', flexDirection:'column', rowGap:'1px', marginLeft: '1px'}}
     >
       <div style={{order: '1', position:'relative'}}>
-        {/* {this.renderPreviousPageButton()} */
-        <h1>Hello</h1>}
+        <div style={{width:'50px', height:'100%', display:'block'}}>{this.renderPreviousPageButton()}</div>
       </div>
       <div style={{order:'2', position:'relative'}}>
-        {/* {this.renderNextPageButton()} */
-        <h1>World</h1>}
+        <div style={{width:'50px', height:'100%', display:'block'}}>{this.renderNextPageButton()}</div>
       </div>
     </div>
   }
