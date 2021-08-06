@@ -284,13 +284,31 @@ class VideoList extends Component {
     );
   }
 
-  renderPreviousPageButton() {
+  renderPreviousPageButton(isMobileDevice) {
     const { intl, currentVideoPageIndex, numberOfPages } = this.props;
     if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
 
     const currentPage = currentVideoPageIndex + 1;
     const prevPageLabel = intl.formatMessage(intlMessages.prevPageLabel);
     const prevPageDetailedLabel = `${prevPageLabel} (${currentPage}/${numberOfPages})`;
+
+    if(isMobileDevice){
+      return <div
+        style={{order: '1', position:'relative'}}
+      >
+      <Button
+        role="button"
+        aria-label={prevPageLabel}
+        color="primary"
+        icon="left_arrow"
+        size="md"
+        onClick={VideoService.getPreviousVideoPage}
+        label={prevPageDetailedLabel}
+        hideLabel
+        className={cx(styles.previousPage)}
+      />
+      </div>
+    }
 
     return (
       <Button
@@ -429,8 +447,16 @@ class VideoList extends Component {
       [styles.videoCanvas]: true,
     });
 
+    const canvasMobile = cx({
+      [styles.videoCanvasMobile]: true,
+    });
+
     const videoListClassName = cx({
       [styles.videoList]: true,
+    });
+
+    const videoListMobile = cx({
+      [styles.videoListMobile]: true,
     });
 
     const { isMobile } = deviceInfo;
@@ -440,24 +466,18 @@ class VideoList extends Component {
         ref={(ref) => {
           this.canvas = ref;
         }}
-        className={canvasClassName}
+        className={isMobile ? canvasMobile : canvasClassName}
         style={{width: isMobile ? '12%' : ''}}
       >
-        <div
-        ref={(ref) => {
-          this.grid = ref;
-        }}
-        className={videoListClassName}
-        >
-          {this.renderPreviousPageButton()}
-        </div>
+        
+        {this.renderPreviousPageButton(isMobile)}
 
         {!totalNumberOfStreams ? null : (
           <div
             ref={(ref) => {
               this.grid = ref;
             }}
-            className={videoListClassName}
+            className={isMobile ? videoListMobile : videoListClassName}
             style={{
               width: isMobile ? '103px' : `${optimalGrid.width}px`,
               height: isMobile ? '130px' : `${optimalGrid.height}px`,
@@ -465,7 +485,7 @@ class VideoList extends Component {
               gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
             }}
           >
-            {/* {this.renderVideoList()} */}
+            {this.renderVideoList()}
           </div>
         )}
         { !autoplayBlocked ? null : (
@@ -476,7 +496,7 @@ class VideoList extends Component {
           />
         )}
 
-        {this.renderNextPageButton()}
+        {/* {this.renderNextPageButton()} */}
 
       </div>
     );
