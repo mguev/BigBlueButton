@@ -17,8 +17,11 @@ import DropdownListSeparator from '/imports/ui/components/dropdown/list/separato
 import ShortcutHelpComponent from '/imports/ui/components/shortcut-help/component';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import FullscreenService from '../../fullscreen-button/service';
+import deviceInfo from '/imports/utils/deviceInfo';
 
 import { styles } from '../styles';
+
+const { isMobile } = deviceInfo;
 
 const intlMessages = defineMessages({
   optionsLabel: {
@@ -230,22 +233,24 @@ class SettingsDropdown extends PureComponent {
 
     return _.compact([
       this.getFullscreenItem(),
-      (<DropdownListItem
-        key="list-item-speaker-view"
-        icon="desktop"
-        data-test="settings"
-        label={"Speaker View"}
-        description={intl.formatMessage(intlMessages.paginationEnabledLabel)}
-        onClick={() => togglePagination()}
-      />),
-      (<DropdownListItem
-        key="list-item-gallery-view"
-        icon="video"
-        data-test="settings"
-        label={"Gallery View"}
-        description={intl.formatMessage(intlMessages.paginationEnabledLabel)}
-        onClick={() => togglePagination()}
-      />),
+      !isMobile
+      ? (<DropdownListItem
+          key="list-item-speaker-view"
+          icon="desktop"
+          data-test="settings"
+          label={"Speaker View"}
+          description={intl.formatMessage(intlMessages.paginationEnabledLabel)}
+          onClick={() => togglePagination()}
+      />) : null,
+      !isMobile
+      ? (<DropdownListItem
+          key="list-item-gallery-view"
+          icon="video"
+          data-test="settings"
+          label={"Gallery View"}
+          description={intl.formatMessage(intlMessages.paginationEnabledLabel)}
+          onClick={() => togglePagination()}
+      />) : null,
       allowedToEndMeeting && isMeteorConnected
         ? (<DropdownListItem
           key="list-item-end-meeting"
