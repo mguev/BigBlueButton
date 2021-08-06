@@ -284,31 +284,29 @@ class VideoList extends Component {
     );
   }
 
-  renderPreviousPageButton(isMobileDevice) {
+  renderMobilePageButtons(){
+    const { numberOfPages } = this.props;
+    if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
+
+    return <div
+      style={{order: '1', position:'relative', flex:'column', rowGap:'1px', marginLeft: '1px'}}
+    >
+      <div style={{order: '1', position:'relative'}}>
+        {this.renderPreviousPageButton()}
+      </div>
+      <div style={{order:'2', position:'relative'}}>
+        {this.renderNextPageButton()}
+      </div>
+    </div>
+  }
+
+  renderPreviousPageButton() {
     const { intl, currentVideoPageIndex, numberOfPages } = this.props;
     if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
 
     const currentPage = currentVideoPageIndex + 1;
     const prevPageLabel = intl.formatMessage(intlMessages.prevPageLabel);
     const prevPageDetailedLabel = `${prevPageLabel} (${currentPage}/${numberOfPages})`;
-
-    if(isMobileDevice){
-      return <div
-        style={{order: '1', position:'relative'}}
-      >
-      <Button
-        role="button"
-        aria-label={prevPageLabel}
-        color="primary"
-        icon="left_arrow"
-        size="md"
-        onClick={VideoService.getPreviousVideoPage}
-        label={prevPageDetailedLabel}
-        hideLabel
-        className={cx(styles.previousPage)}
-      />
-      </div>
-    }
 
     return (
       <Button
@@ -470,7 +468,7 @@ class VideoList extends Component {
         style={{width: isMobile ? '12%' : ''}}
       >
         
-        {this.renderPreviousPageButton(isMobile)}
+        {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()}
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -496,7 +494,7 @@ class VideoList extends Component {
           />
         )}
 
-        {/* {this.renderNextPageButton()} */}
+        {!isMobile && this.renderNextPageButton()}
 
       </div>
     );
