@@ -441,7 +441,7 @@ class VideoList extends Component {
           this.canvas = ref;
         }}
         className={canvasClassName}
-        style={{width: isMobile ? '12%' : ''}}
+        style={{width: isMobile ? '23%' : ''}}
       >
 
         {this.renderPreviousPageButton()}
