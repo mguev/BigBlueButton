@@ -468,7 +468,8 @@ class VideoList extends Component {
         style={{width: isMobile ? '12%' : ''}}
       >
         
-        {/* {!isMobile && this.renderPreviousPageButton()} */}
+        {/* {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()} */}
+        {this.renderMobilePageButtons()}
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -494,8 +495,7 @@ class VideoList extends Component {
           />
         )}
 
-        {/* {isMobile ? this.renderMobilePageButtons() : this.renderNextPageButton()} */}
-        {this.renderMobilePageButtons()}
+        {/* {!isMobile && this.renderNextPageButton()} */}
       </div>
     );
   }
