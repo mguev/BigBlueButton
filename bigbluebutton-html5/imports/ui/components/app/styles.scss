@@ -185,6 +185,7 @@
 
   @include mq($medium-up) {
     flex: 0 15vw;
+    order: 2;
   }
 }
 
