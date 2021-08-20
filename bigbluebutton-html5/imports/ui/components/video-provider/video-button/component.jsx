@@ -86,7 +86,7 @@ const JoinVideoButton = ({
       icon={VideoService.hasVideoStream() ? 'video' : 'video_off'}
       ghost={!VideoService.hasVideoStream()}
       ghost
-      size={isMobile ? 'md' : 'lg'}
+      size={isMobile ? 'sm' : 'lg'}
       circle
       disabled={!!disableReason}
     />

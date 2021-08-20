@@ -99,7 +99,7 @@ class ActionsBar extends PureComponent {
               color="primary"
               hideLabel
               circle
-              size={isMobile ? "md" : "lg"}
+              size={isMobile ? "sm" : "lg"}
               onClick={() => {
                 setEmojiStatus(
                   currentUser.userId,
