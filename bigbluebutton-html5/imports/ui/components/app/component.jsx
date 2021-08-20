@@ -349,7 +349,8 @@ class App extends Component {
 
     return (
       <section
-        className={isMobile ? styles.actionsbarSm : styles.actionsbar}
+        // className={isMobile ? styles.actionsbarSm : styles.actionsbar}
+        className={styles.actionsbar}
         aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
         aria-hidden={this.shouldAriaHide()}
       >
