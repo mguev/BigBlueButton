@@ -4,7 +4,10 @@ import { defineMessages, injectIntl } from 'react-intl';
 import Button from '/imports/ui/components/button/component';
 import ConnectionStatusModalContainer from '/imports/ui/components/connection-status/modal/container';
 import ConnectionStatusService from '/imports/ui/components/connection-status/service';
+import deviceInfo from '/imports/utils/deviceInfo';
 import { styles } from './styles';
+
+const { isMobile } = deviceInfo;
 
 const intlMessages = defineMessages({
   label: {
@@ -78,7 +81,7 @@ class ConnectionStatusButton extends Component {
         label={intl.formatMessage(intlMessages.label)}
         hideLabel
         aria-label={intl.formatMessage(intlMessages.description)}
-        size="sm"
+        size={isMobile ? 'sm' : 'lg'}
         color={color}
         disabled={!connected}
         circle

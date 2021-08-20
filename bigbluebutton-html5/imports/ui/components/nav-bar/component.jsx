@@ -15,6 +15,9 @@ import ConnectionStatusButton from '/imports/ui/components/connection-status/but
 import ConnectionStatusService from '/imports/ui/components/connection-status/service';
 import SettingsDropdownContainer from './settings-dropdown/container';
 import LeaveMeetingConfirmationContainer from '/imports/ui/components/leave-meeting-confirmation/container';
+import deviceInfo from '/imports/utils/deviceInfo';
+
+const { isMobile } = deviceInfo;
 
 import { makeCall } from '/imports/ui/services/api';
 
@@ -186,7 +189,7 @@ class NavBar extends Component {
               className={cx(toggleBtnClasses)}
             /> */}
             {ConnectionStatusService.isEnabled() ? <ConnectionStatusButton /> : null}
-            <SettingsDropdownContainer togglePagination={togglePagination} amIModerator={amIModerator} />
+            {isMobile ? <SettingsDropdownContainer togglePagination={togglePagination} amIModerator={amIModerator} /> : null}
           </div>
         </div>
         <div className={styles.bottom}>
