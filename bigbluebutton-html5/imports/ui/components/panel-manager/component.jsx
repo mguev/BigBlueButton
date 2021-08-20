@@ -324,7 +324,6 @@ class PanelManager extends Component {
 
     return (
       <Resizable
-        style={{ order: 2 }}
         minWidth={USERLIST_MIN_WIDTH_PX}
         maxWidth={USERLIST_MAX_WIDTH_PX}
         ref={(node) => { this.resizableUserList = node; }}
