@@ -587,7 +587,7 @@ class PanelManager extends Component {
 
     panels.push(
       this.renderUserListResizable(),
-      <div style={{order:2}} className={styles.userlistPad} key={this.padKey} />,
+      <div className={styles.userlistPad} key={this.padKey} />,
     );
     // if (enableResize) {
     //   panels.push(
