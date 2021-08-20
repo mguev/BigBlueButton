@@ -189,7 +189,7 @@ class NavBar extends Component {
               className={cx(toggleBtnClasses)}
             /> */}
             {ConnectionStatusService.isEnabled() ? <ConnectionStatusButton /> : null}
-            {isMobile ? <SettingsDropdownContainer togglePagination={togglePagination} amIModerator={amIModerator} /> : null}
+            {!isMobile ? <SettingsDropdownContainer togglePagination={togglePagination} amIModerator={amIModerator} /> : null}
           </div>
         </div>
         <div className={styles.bottom}>
