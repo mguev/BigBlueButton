@@ -7,6 +7,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 import { styles } from './styles';
 import { validIOSVersion } from '/imports/ui/components/app/service';
 import { debounce } from 'lodash';
+import deviceInfo from '/imports/utils/deviceInfo';
 
 const { isMobile } = deviceInfo;
 
