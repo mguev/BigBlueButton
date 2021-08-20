@@ -184,6 +184,8 @@ class AudioControls extends PureComponent {
       isPresenter,
     } = this.props;
 
+    const { isMobile } = deviceInfo;
+
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
       : intl.formatMessage(intlMessages.muteAudio);
 
@@ -199,7 +201,7 @@ class AudioControls extends PureComponent {
         // ghost={muted}
         ghost
         icon={muted ? 'mute' : 'unmute'}
-        size="lg"
+        size={isMobile ? "sm" : "lg"}
         circle
         accessKey={shortcuts.togglemute}
       />
