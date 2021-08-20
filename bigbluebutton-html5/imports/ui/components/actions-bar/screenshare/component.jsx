@@ -183,7 +183,7 @@ const ScreenshareButton = ({
         label={intl.formatMessage(vLabel)}
         description={intl.formatMessage(vDescr)}
         color={isVideoBroadcasting ? 'primary' : 'default'}
-        ghost={!isVideoBroadcasting}
+        // ghost={!isVideoBroadcasting}
         hideLabel
         circle
         size="md"
