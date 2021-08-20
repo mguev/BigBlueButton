@@ -10,7 +10,6 @@ import cx from 'classnames';
 import Modal from '/imports/ui/components/modal/simple/component';
 import { withModalMounter } from '../../modal/service';
 import { styles } from '../styles';
-import { secondStyle } from '/imports/ui/components/audio/audio-controls/styles';
 import ScreenshareBridgeService from '/imports/api/screenshare/client/bridge/service';
 import {
   shareScreen,
@@ -176,8 +175,7 @@ const ScreenshareButton = ({
     && amIPresenter;
 
   return shouldAllowScreensharing
-    ? <span className={secondStyle.container}>
-      (
+    ? (
       <Button
         className={cx(isVideoBroadcasting || styles.btn)}
         disabled={(!isMeteorConnected && !isVideoBroadcasting) || !screenshareDataSavingSetting}
@@ -202,8 +200,7 @@ const ScreenshareButton = ({
         }
         id={isVideoBroadcasting ? 'unshare-screen-button' : 'share-screen-button'}
       />
-    )
-    </span> : null;
+    ) : null;
 };
 
 ScreenshareButton.propTypes = propTypes;

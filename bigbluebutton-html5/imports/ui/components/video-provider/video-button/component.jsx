@@ -8,6 +8,8 @@ import { styles } from './styles';
 import { validIOSVersion } from '/imports/ui/components/app/service';
 import { debounce } from 'lodash';
 
+const { isMobile } = deviceInfo;
+
 const intlMessages = defineMessages({
   joinVideo: {
     id: 'app.video.joinVideo',
@@ -83,7 +85,8 @@ const JoinVideoButton = ({
       icon={VideoService.hasVideoStream() ? 'video' : 'video_off'}
       // ghost={!VideoService.hasVideoStream()}
       ghost
-      size="lg"
+      // size={isMobile ? 'md' : 'lg'}
+      size='md'
       circle
       disabled={!!disableReason}
     />
