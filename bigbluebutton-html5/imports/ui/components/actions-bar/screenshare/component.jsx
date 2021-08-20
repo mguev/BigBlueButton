@@ -186,7 +186,8 @@ const ScreenshareButton = ({
         ghost={!isVideoBroadcasting}
         hideLabel
         circle
-        size={isMobile ? "sm" : "lg"}
+        size="md"
+        // size={isMobile ? "sm" : "lg"}
         onClick={isVideoBroadcasting
           ? screenshareHasEnded
           : () => {

@@ -201,7 +201,8 @@ class AudioControls extends PureComponent {
         // ghost={muted}
         ghost
         icon={muted ? 'mute' : 'unmute'}
-        size={isMobile ? "sm" : "lg"}
+        size="md"
+        // size={isMobile ? "sm" : "lg"}
         circle
         accessKey={shortcuts.togglemute}
       />
