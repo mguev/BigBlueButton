@@ -465,7 +465,7 @@ class VideoList extends Component {
           this.canvas = ref;
         }}
         className={isMobile || mobileTesting ? canvasMobile : canvasClassName}
-        style={{width: isMobile ? '12%' : ''}}
+        style={{width: isMobile || mobileTesting ? '12%' : ''}}
       >
         
         {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()}
