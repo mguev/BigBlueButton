@@ -107,6 +107,7 @@ export default class Media extends Component {
               webcamsPlacement === 'left'
               || webcamsPlacement === 'right'
             )
+            || isMobile || mobileTesting
               ? '80%'
               : '100%',
             minWidth: '20%',
