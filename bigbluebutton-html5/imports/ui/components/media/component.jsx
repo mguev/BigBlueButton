@@ -47,6 +47,7 @@ export default class Media extends Component {
       usersVideo,
       layoutContextState,
       isMeteorConnected,
+      mobileTesting
     } = this.props;
 
     const { webcamsPlacement: placement } = layoutContextState;
@@ -89,14 +90,14 @@ export default class Media extends Component {
         id="container"
         className={containerClassName}
         ref={this.refContainer}
-        style={{flexDirection : isMobile ? 'row' : ''}}
+        style={{flexDirection : isMobile || mobileTesting ? 'row' : ''}}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
             height: '100%',
-            maxHeight: isMobile ? '100%' : customMaxHeight,
-            minHeight: isMobile && window.innerWidth > window.innerHeight ? '50%' : '20%',
+            maxHeight: isMobile || mobileTesting ? '100%' : customMaxHeight,
+            minHeight: isMobile && window.innerWidth > window.innerHeight || mobileTesting ? '50%' : '20%',
             maxWidth: usersVideo.length > 0
             && (
               webcamsPlacement !== 'top'
@@ -113,7 +114,7 @@ export default class Media extends Component {
         >
           {children}
         </div>
-        {showVideo && !isMobile ? (
+        {showVideo && !isMobile && !mobileTesting ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
             swapLayout={swapLayout}

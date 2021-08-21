@@ -438,7 +438,7 @@ class VideoList extends Component {
     //     });
   }
   render() {
-    const { streams, intl, totalNumberOfStreams } = this.props;
+    const { streams, intl, totalNumberOfStreams, mobileTesting } = this.props;
     const { optimalGrid, autoplayBlocked } = this.state;
 
     const canvasClassName = cx({
@@ -464,7 +464,7 @@ class VideoList extends Component {
         ref={(ref) => {
           this.canvas = ref;
         }}
-        className={isMobile ? canvasMobile : canvasClassName}
+        className={isMobile || mobileTesting ? canvasMobile : canvasClassName}
         style={{width: isMobile ? '12%' : ''}}
       >
         
@@ -475,10 +475,10 @@ class VideoList extends Component {
             ref={(ref) => {
               this.grid = ref;
             }}
-            className={isMobile ? videoListMobile : videoListClassName}
+            className={isMobile || mobileTesting ? videoListMobile : videoListClassName}
             style={{
-              width: isMobile ? '103px' : `${optimalGrid.width}px`,
-              height: isMobile ? '130px' : `${optimalGrid.height}px`,
+              width: isMobile || mobileTesting ? '103px' : `${optimalGrid.width}px`,
+              height: isMobile || mobileTesting ? '130px' : `${optimalGrid.height}px`,
               gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
               gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
             }}
