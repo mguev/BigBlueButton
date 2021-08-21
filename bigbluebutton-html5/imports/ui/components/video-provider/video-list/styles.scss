@@ -277,7 +277,6 @@
 
 .nextPageMobile {
   margin-left: 1px;
-  transform: rotate(90deg);
   @include mq($medium-up) {
     margin-left: 32px;
     margin-top: 4px;
@@ -286,7 +285,6 @@
 
 .previousPageMobile {
   margin-right: 1px;
-  transform: rotate(90deg);
   @include mq($medium-up) {
     margin-left: 32px;
     margin-bottom: 4px;
