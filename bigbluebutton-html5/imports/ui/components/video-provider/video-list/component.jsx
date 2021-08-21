@@ -472,9 +472,11 @@ class VideoList extends Component {
         
         {/* {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()} */}
         
-        <div className={cx({[styles.previousPageMobile]: true})}>
-          {this.renderPreviousPageButton()}
-        </div>
+        {isMobile || mobileTesting ? 
+          <div className={cx({[styles.previousPageMobile]: true})}>
+            {this.renderPreviousPageButton()}
+          </div> : this.renderPreviousPageButton()
+        }
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -500,10 +502,12 @@ class VideoList extends Component {
           />
         )}
 
+        {isMobile || mobileTesting ? 
+          <div className={cx({[styles.nextPageMobile]: true})}>
+            {this.renderNextPageButton()}
+          </div> : this.renderNextPageButton()
+        }
         {/* {!isMobile && this.renderNextPageButton()} */}
-        <div className={cx({[styles.nextPageMobile]: true})}>
-          {this.renderNextPageButton()}
-        </div>
       </div>
     );
   }
