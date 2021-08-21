@@ -471,7 +471,7 @@ class VideoList extends Component {
       >
         
         {/* {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()} */}
-        {this.renderPreviousPageButton(true)}
+        {this.renderPreviousPageButton()}
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -498,7 +498,7 @@ class VideoList extends Component {
         )}
 
         {/* {!isMobile && this.renderNextPageButton()} */}
-        {this.renderNextPageButton(true)}
+        {this.renderNextPageButton()}
       </div>
     );
   }
