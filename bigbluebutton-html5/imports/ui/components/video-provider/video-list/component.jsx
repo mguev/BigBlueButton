@@ -470,7 +470,8 @@ class VideoList extends Component {
         style={{width: isMobile || mobileTesting ? '12%' : ''}}
       >
         
-        {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()}
+        {/* {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()} */}
+        {this.renderPreviousPageButton(true)}
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -480,7 +481,7 @@ class VideoList extends Component {
             className={isMobile || mobileTesting ? videoListMobile : videoListClassName}
             style={{
               width: isMobile || mobileTesting ? '103px' : `${optimalGrid.width}px`,
-              height: isMobile || mobileTesting ? '130px' : `${optimalGrid.height}px`,
+              height: isMobile || mobileTesting ? '100%' : `${optimalGrid.height}px`,
               gridTemplateColumns: `repeat(${optimalGrid.columns}, 1fr)`,
               gridTemplateRows: `repeat(${optimalGrid.rows}, 1fr)`,
             }}
@@ -496,7 +497,8 @@ class VideoList extends Component {
           />
         )}
 
-        {!isMobile && this.renderNextPageButton()}
+        {/* {!isMobile && this.renderNextPageButton()} */}
+        {this.renderNextPageButton(true)}
       </div>
     );
   }
