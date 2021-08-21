@@ -276,11 +276,17 @@
 }
 
 .nextPageMobile {
+  display: block;
+  transform: rotate(90deg);
+  width: 40px;
   margin-left: 32px;
   margin-top: 4px;
 }
 
 .previousPageMobile {
+  display: block;
+  transform: rotate(90deg);
+  width: 40px;
   margin-left: 32px;
   margin-bottom: 4px;
 }

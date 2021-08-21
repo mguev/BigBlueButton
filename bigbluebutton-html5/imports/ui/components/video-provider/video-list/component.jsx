@@ -281,7 +281,7 @@ class VideoList extends Component {
         onClick={VideoService.getNextVideoPage}
         label={nextPageDetailedLabel}
         hideLabel
-        className={cx(styles.nextPageMobile) }
+        className={cx(styles.nextPage) }
       />
     );
   }
