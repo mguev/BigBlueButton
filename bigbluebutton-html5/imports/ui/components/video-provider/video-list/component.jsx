@@ -262,7 +262,7 @@ class VideoList extends Component {
     this.ticking = true;
   }
 
-  renderNextPageButton(verticalButtons = false) {
+  renderNextPageButton() {
     const { intl, numberOfPages, currentVideoPageIndex } = this.props;
 
     if (!VideoService.isPaginationEnabled() || numberOfPages <= 1) return null;
@@ -281,7 +281,7 @@ class VideoList extends Component {
         onClick={VideoService.getNextVideoPage}
         label={nextPageDetailedLabel}
         hideLabel
-        className={!verticalButtons ? cx(styles.nextPage) : cx(styles.nextPageMobile) }
+        className={cx(styles.nextPageMobile) }
       />
     );
   }
@@ -294,15 +294,15 @@ class VideoList extends Component {
       style={{order: '2', position:'relative', flexDirection:'column', rowGap:'1px', marginLeft: '1px'}}
     >
       <div style={{order: '1', position:'relative', overflow:'hidden', display:'inline-block'}}>
-        {this.renderPreviousPageButton(true)}
+        {this.renderPreviousPageButton()}
       </div>
       <div style={{order:'2', position:'relative', overflow:'hidden', display:'inline-block'}}>
-        {this.renderNextPageButton(true)}
+        {this.renderNextPageButton()}
       </div>
     </div>
   }
 
-  renderPreviousPageButton(verticalButtons = false) {
+  renderPreviousPageButton() {
     const { intl, currentVideoPageIndex, numberOfPages } = this.props;
     if ((!VideoService.isPaginationEnabled() || numberOfPages <= 1)) return null;
 
@@ -320,7 +320,7 @@ class VideoList extends Component {
         onClick={VideoService.getPreviousVideoPage}
         label={prevPageDetailedLabel}
         hideLabel
-        className={!verticalButtons ? cx(styles.previousPage) : cx(styles.previousPageMobile) }
+        className={cx(styles.previousPage)}
       />
     );
   }
@@ -471,7 +471,10 @@ class VideoList extends Component {
       >
         
         {/* {isMobile ? this.renderMobilePageButtons() : this.renderPreviousPageButton()} */}
-        {this.renderPreviousPageButton()}
+        
+        <div className={cx({[styles.previousPageMobile]: true})}>
+          {this.renderPreviousPageButton()}
+        </div>
 
         {!totalNumberOfStreams ? null : (
           <div
@@ -498,7 +501,9 @@ class VideoList extends Component {
         )}
 
         {/* {!isMobile && this.renderNextPageButton()} */}
-        {this.renderNextPageButton()}
+        <div className={cx({[styles.nextPageMobile]: true})}>
+          {this.renderNextPageButton()}
+        </div>
       </div>
     );
   }
