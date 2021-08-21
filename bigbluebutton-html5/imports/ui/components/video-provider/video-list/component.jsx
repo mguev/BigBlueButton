@@ -13,7 +13,7 @@ import VideoService from '/imports/ui/components/video-provider/service';
 import Button from '/imports/ui/components/button/component';
 import deviceInfo from '/imports/utils/deviceInfo';
 
-const mobileTesting = true;
+const mobileTesting = false;
 
 const propTypes = {
   streams: PropTypes.arrayOf(PropTypes.object).isRequired,

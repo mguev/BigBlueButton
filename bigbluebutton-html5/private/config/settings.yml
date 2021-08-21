@@ -307,8 +307,8 @@ public:
         viewer: 5
       # video page sizes for MOBILE endpoints
       mobilePageSizes:
-        moderator: 4
-        viewer: 4
+        moderator: 5
+        viewer: 5
     paginationThresholds:
       enabled: false
       thresholds:
