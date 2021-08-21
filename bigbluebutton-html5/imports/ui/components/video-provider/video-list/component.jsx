@@ -13,6 +13,8 @@ import VideoService from '/imports/ui/components/video-provider/service';
 import Button from '/imports/ui/components/button/component';
 import deviceInfo from '/imports/utils/deviceInfo';
 
+const mobileTesting = true;
+
 const propTypes = {
   streams: PropTypes.arrayOf(PropTypes.object).isRequired,
   onVideoItemMount: PropTypes.func.isRequired,
@@ -438,7 +440,7 @@ class VideoList extends Component {
     //     });
   }
   render() {
-    const { streams, intl, totalNumberOfStreams, mobileTesting } = this.props;
+    const { streams, intl, totalNumberOfStreams } = this.props;
     const { optimalGrid, autoplayBlocked } = this.state;
 
     const canvasClassName = cx({
